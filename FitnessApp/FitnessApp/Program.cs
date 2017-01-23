@@ -28,7 +28,14 @@ namespace FitnessApp
                     // Add time to total
                     int minutes = int.Parse(entry);
 
-                    if (minutes <= 10)
+                    if (minutes <=0)
+                    {
+                        Console.WriteLine("You're a failure...");
+                        Console.WriteLine("but then again you might have just typed something wrong.");
+                        Console.WriteLine("Here try again:");
+                        continue;
+                    }
+                    else if (minutes <= 10)
                     {
                         Console.WriteLine("You can do better!");
                     }
