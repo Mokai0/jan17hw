@@ -10,7 +10,7 @@ namespace FitnessApp
     {
         static void Main()
         {
-            int runningTotal = 0;
+            double runningTotal = 0;
             bool keepGoing = true;
 
             while (keepGoing)
@@ -20,14 +20,14 @@ namespace FitnessApp
                 try
                 {
                     string entry = Console.ReadLine();
-                    if (entry == "quit")
+                    if (entry.ToLower() == "quit")
                     {
                         keepGoing = false;
                     }
                     else
                     {
                         // Add time to total
-                        int minutes = int.Parse(entry);
+                        double minutes = double.Parse(entry);
 
                         if (minutes <= 0)
                         {
