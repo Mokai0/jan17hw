@@ -17,9 +17,10 @@ namespace FitnessApp
             string entry = Console.ReadLine();
 
             // Add time to total
-
+            int minutes = int.Parse(entry);
+            runningTotal = runningTotal + minutes;
             //Display total time
-            Console.Write("You've worked out for: " + entry + " minutes!");
+            Console.Write("You've worked out for: " + runningTotal + " minutes!");
         }
     }
 }
