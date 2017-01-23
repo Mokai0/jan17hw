@@ -16,14 +16,23 @@ namespace FitnessApp
             while (keepGoing)
             {
                 // Prompt user for time exercised
-                Console.Write("How many minutes did you workout for? ");
+                Console.Write("How many minutes did you workout for? (Type 'quit' if you whimped out, lol) ");
                 string entry = Console.ReadLine();
 
-                // Add time to total
-                int minutes = int.Parse(entry);
-                runningTotal = runningTotal + minutes;
-                //Display total time
-                Console.Write("You've worked out for: " + runningTotal + " minutes!");
+                if (entry == "quit")
+                {
+                    keepGoing = false;
+                }
+                else
+                {
+                    // Add time to total
+                    int minutes = int.Parse(entry);
+                    runningTotal = runningTotal + minutes;
+
+                    //Display total time
+                    Console.Write("You've worked out for: " + runningTotal + " minutes!");
+                }
+                Console.WriteLine("See ya!");
             }            
         }
     }
