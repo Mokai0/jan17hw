@@ -27,6 +27,24 @@ namespace FitnessApp
                 {
                     // Add time to total
                     int minutes = int.Parse(entry);
+
+                    if (minutes <= 10)
+                    {
+                        Console.WriteLine("You can do better!");
+                    }
+                    else if(minutes <=30)
+                    {
+                        Console.WriteLine("Okay, now we're getting somewhere! *clap clap*");
+                    }
+                    else if(minutes <=60)
+                    {
+                        Console.WriteLine("Feel the BURN! Keep going champ!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("THIS IS SPARTA!!!");
+                    }
+
                     runningTotal = runningTotal + minutes;
 
                     //Display total time
