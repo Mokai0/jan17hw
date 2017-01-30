@@ -21,6 +21,8 @@ namespace FitnessApp
                     string entry = Console.ReadLine();
                     if (entry.ToLower() == "quit")
                     {
+                        Console.WriteLine("See ya!");
+                        Console.ReadKey();
                         break;
                     }
 
@@ -54,8 +56,7 @@ namespace FitnessApp
                     runningTotal += minutes;
 
                     //Display total time
-                    Console.Write("You've worked out for: " + runningTotal + " minutes!");
-                    Console.WriteLine("See ya!");
+                    Console.WriteLine("You've worked out for: " + runningTotal + " minutes!");
                 }
                 catch (FormatException)
                 {
