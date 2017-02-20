@@ -12,7 +12,7 @@ namespace TowerDefense
         {
             if (!map.OnMap(this))
             {
-                throw new Exception(x + ", " + y + " can't exist on the map!");
+                throw new OutOfBoundsException(x + ", " + y + " can't exist on the map!");
             }
         }
     }
