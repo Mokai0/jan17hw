@@ -19,15 +19,8 @@ namespace TowerDefense
 
         public bool OnMap(Point point)
         {
-            bool inBounds = point.X >= 0 && point.X < Width && point.Y >= 0 && point.Y < Height;
-
-            //bool outOfBounds = point.X < 0 || point.X >= Width || point.Y < 0 || point.Y >= Height;
-
-            //inBounds = !outOfBounds;
-            
-            //The above is an example of how you would utilize a "or" operator to define the same desired code, however it is redundant in this situation.
-
-            return inBounds;
+            return point.X >= 0 && point.X < Width &&
+                   point.Y >= 0 && point.Y < Height;
         }
     }
 }
