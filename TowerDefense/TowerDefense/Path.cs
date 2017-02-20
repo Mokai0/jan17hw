@@ -15,7 +15,7 @@ namespace TowerDefense
             _path = path;
         }
 
-        public GetLocationAt(int pathStep)
+        public MapLocation GetLocationAt(int pathStep)
         {
             return (pathStep < _path.length) ? _path[pathStep] : null;
         }
