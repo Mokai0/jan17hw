@@ -14,11 +14,7 @@ namespace TowerDefense
 
             Point point = new Point(4, 2);
 
-            bool isOnMap = map.OnMap(point);
-            Console.WriteLine(isOnMap);
-            point = new Point(8, 5);
-            isOnMap = map.OnMap(point);
-            Console.WriteLine(isOnMap);
+            Console.WriteLine(point.DistanceTo(5, 5));
             Console.ReadKey();
         }
     }
