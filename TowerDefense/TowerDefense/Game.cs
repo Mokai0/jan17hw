@@ -13,6 +13,8 @@ namespace TowerDefense
             Map map = new Map(8, 5);
 
             int area = map.Width * map.Height;
+            //Console.WriteLine(area);
+            //Console.ReadKey();
         }
     }
 }
