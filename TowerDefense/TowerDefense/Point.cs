@@ -26,9 +26,6 @@ namespace TowerDefense
             int yDiffSq = yDiff * yDiff;
 
             return (int) Math.Sqrt(xDiffSq + yDiffSq);
-
-            //return (int)Math.Sqrt(Math.Pow(X-x, 2)+ Math.Pow(Y-y, 2));
-            //The above is the same method written into one line.
         }
     }
 }
