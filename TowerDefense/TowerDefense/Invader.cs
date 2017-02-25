@@ -8,7 +8,25 @@ namespace TowerDefense
 {
     class Invader
     {
-        public MapLocation Location { get; private set; }
-        //Keeping the setter private is a common practice - it future proofs the code so that you can change the field's contents when working within the same class and ensure it's entgrity out side of the class. At the same time its a good idea to keep the getter public to allow access to the information from outside the class. The above is what's known as an AUTO PROPERTY.
+        private readonly Path _path;
+        private int _pathStep = 0;
+
+        public MapLocation Location
+        {
+            get
+            {
+                return _path.GetLocationAt(_pathStep);
+            }
+        }        
+        //"private set;" deleted because this is now a computed property and therefore has no setter, private or otherwise.
+        public Invader(Path path)
+        {
+            _path = path;
+        }
+
+        public void Move()
+        {
+            _pathStep += 1;
+        }
     }
 }
