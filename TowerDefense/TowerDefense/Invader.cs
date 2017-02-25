@@ -12,8 +12,14 @@ namespace TowerDefense
         private int _pathStep = 0;
 
         public MapLocation Location => _path.GetLocationAt(_pathStep);
-        //The above is the syntactic sugar for the below code block, so long as it takes a single statement and is used strictly for computed properties this will work!
-        //{ get { return _path.GetLocationAt(_pathStep); } }        
+
+        public int Health { get; private set; } = 2;
+
+        public bool HasScored => _pathStep >= _path.Length;
+
+        public bool IsDead => Health <= 0;
+
+        public bool IsAlive => !(IsDead || HasScored);
 
         public Invader(Path path)
         {
@@ -21,7 +27,10 @@ namespace TowerDefense
         }
 
         public void Move() => _pathStep += 1;
-        //Similarly this would be how you write syntactic sugar for single statement methods. Notice how the parentheses, "()", are still there - that's a clear indication of this line being a method. Another difference is that properties will ALWAYS return a value whereas this method, because of 'void', will not.
-        //{ _pathStep += 1; }
+
+        public void DecreaseHealth(int factor)
+        {
+            Health -= factor;
+        }
     }
 }
