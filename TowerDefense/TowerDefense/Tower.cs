@@ -17,10 +17,9 @@ namespace TowerDefense
 
         public void ShootEm(Invader[] invaders)
         {
-            for(int i = 0; i <invaders.Length; i++)
+            foreach(Invader invader in invaders)
             {
-                Invader invader = invaders[i];
-                //Do stuff with invader
+
             }
         }
     }
