@@ -19,13 +19,12 @@ namespace TowerDefense
 
         public int DistanceTo(int x, int y)
         {
-            int xDiff = X - x;
-            int yDiff = Y - y;
+            return (int)Math.Sqrt(Math.Pow(X - x, 2) + Math.Pow(Y - y, 2));
+        }
 
-            int xDiffSq = xDiff * xDiff;
-            int yDiffSq = yDiff * yDiff;
-
-            return (int) Math.Sqrt(xDiffSq + yDiffSq);
+        public int DistanceTo(Point point)
+        {
+            return DistanceTo(point.X, point.Y);
         }
     }
 }
