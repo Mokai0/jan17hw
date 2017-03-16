@@ -28,8 +28,18 @@
         <h5>Description:</h5>
         <div>@Html.Raw(description)</div>
 
-        <h5>Contributers</h5>
-        <div>@Html.Raw(contributers)</div>
+        @if (contributers.Length > 0)
+        {
+            <h5>Contributers</h5>
+            <div>
+                <ul>
+                    @foreach (var contributer in contributers)
+                {
+                        <li>@contributer</li>
+                    }
+                </ul>
+            </div>
+        }
     </div>
 </body>
 </html>
