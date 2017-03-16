@@ -1,16 +1,7 @@
 ﻿@{
     Layout = null;
 
-    var seriesTitle = "Drifters";
-    var issueNumber = 1;
-    var description = "<p>Debut issue of an incredible tale of heroism! The story of Drifters takes place during Japan's Sengoku period (roughly XV to XVII century), a time of constant warring between the island's states, and a natural setting of choice for samurai stories. Young samurai on verge of death suddenly finds himself into another, fantastic world. How? Why? These questions remain unanswered...</p>";
-    var contributers = new string[]
-    {
-        "Written: Kouta Hirano",
-        "Illustrated:Kouta Hirano",
-        "Published: Shonen Gahosha",
-        "Translated: Dark Horse Comics"
-    };
+    
 }
 
 <!DOCTYPE html>
@@ -22,18 +13,19 @@
 </head>
 <body>
     <div>
-        <h1>@seriesTitle</h1>
-        <h2>Issue #@issueNumber</h2>
+        <h1>@ViewBag.SeriesTitle</h1>
+        <!--Be very careful when using ViewBag because if you have a typo there won't be an error, things just won't appear-->
+        <h2>Issue #@ViewBag.IssueNumber</h2>
 
         <h5>Description:</h5>
-        <div>@Html.Raw(description)</div>
+        <div>@Html.Raw(ViewBag.Description)</div>
 
-        @if (contributers.Length > 0)
+        @if (ViewBag.Contributers.Length > 0)
         {
             <h5>Contributers</h5>
             <div>
                 <ul>
-                    @foreach (var contributer in contributers)
+                    @foreach (var contributer in ViewBag.Contributers)
                 {
                         <li>@contributer</li>
                     }
