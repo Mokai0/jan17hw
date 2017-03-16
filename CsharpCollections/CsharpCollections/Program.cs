@@ -17,9 +17,11 @@ namespace CsharpCollections
                 new Student() {Name = "Mark", GradeLevel = 2},
             };
 
-            students.Sort();
+            SchoolRoll schoolRoll = new SchoolRoll();
+            schoolRoll.AddStudents(students);
 
-            foreach (Student student in students)
+
+            foreach (Student student in schoolRoll.Students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
             }
