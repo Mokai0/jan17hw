@@ -1,37 +1,24 @@
 ﻿@{
-    Layout = null;
-
-    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manga Detail";
 }
 
-<!DOCTYPE html>
+<h1>@ViewBag.SeriesTitle</h1>
+<!--Be very careful when using ViewBag because if you have a typo there won't be an error, things just won't appear-->
+<h2>Issue #@ViewBag.IssueNumber</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
+<h5>Description:</h5>
+<div>@Html.Raw(ViewBag.Description)</div>
+
+@if (ViewBag.Contributers.Length > 0)
+{
+    <h5>Contributers</h5>
     <div>
-        <h1>@ViewBag.SeriesTitle</h1>
-        <!--Be very careful when using ViewBag because if you have a typo there won't be an error, things just won't appear-->
-        <h2>Issue #@ViewBag.IssueNumber</h2>
-
-        <h5>Description:</h5>
-        <div>@Html.Raw(ViewBag.Description)</div>
-
-        @if (ViewBag.Contributers.Length > 0)
+        <ul>
+            @foreach (var contributer in ViewBag.Contributers)
         {
-            <h5>Contributers</h5>
-            <div>
-                <ul>
-                    @foreach (var contributer in ViewBag.Contributers)
-                {
-                        <li>@contributer</li>
-                    }
-                </ul>
-            </div>
-        }
+                <li>@contributer</li>
+            }
+        </ul>
     </div>
-</body>
-</html>
+}
