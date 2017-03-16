@@ -10,11 +10,7 @@ namespace MangaCollection.Controllers
     {
         public ActionResult Detail()
         {
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
-            {
-                return Redirect("/");
-            }
-            return Content("This is the Manga Detail Controller!!!");
+            return View();
         }
     }
 }
