@@ -8,9 +8,13 @@ namespace MangaCollection.Controllers
 {
     public class MangaController :Controller
     {
-        public string Detail()
+        public ActionResult Detail()
         {
-            return "Test page!";
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
+            {
+                return Redirect("/");
+            }
+            return Content("This is the Manga Detail Controller!!!");
         }
     }
 }
