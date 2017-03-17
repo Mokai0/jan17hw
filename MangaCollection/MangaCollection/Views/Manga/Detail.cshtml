@@ -1,23 +1,24 @@
-﻿@{
+﻿@model MangaCollection.Models.Manga
+    <!--This is WAY better than using ViewBag-->
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Manga Detail";
+    ViewBag.Title = Model.DisplayText;
 }
 
-<h1>@ViewBag.SeriesTitle</h1>
-<!--Be very careful when using ViewBag because if you have a typo there won't be an error, things just won't appear-->
-<h2>Issue #@ViewBag.IssueNumber</h2>
+<h1>@Model.SeriesTitle</h1>
+<h2>Issue #@Model.IssueNumber</h2>
 
 <h5>Description:</h5>
-<div>@Html.Raw(ViewBag.Description)</div>
+<div>@Html.Raw(Model.DescriptionHtml)</div>
 
-@if (ViewBag.Contributers.Length > 0)
+@if (Model.Contributers.Length > 0)
 {
     <h5>Contributers</h5>
     <div>
         <ul>
-            @foreach (var contributer in ViewBag.Contributers)
+            @foreach (var contributer in Model.Contributers)
         {
-                <li>@contributer</li>
+                <li>@contributer.Role: @contributer.Name</li>
             }
         </ul>
     </div>
