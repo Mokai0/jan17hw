@@ -17,6 +17,12 @@ namespace MangaCollection.Controllers
             _mangaRepo = new MangaRepo();
         }
 
+        public ActionResult Index()
+        {
+            var mangas = _mangaRepo.getMangas();
+            return View(mangas);
+        }
+
         public ActionResult Detail(int? id)
         {
             if (id==null)

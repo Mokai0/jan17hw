@@ -54,6 +54,11 @@ namespace MangaCollection.Data
             }
         };
 
+        public Manga[] getMangas()
+        {
+            return _mangas;
+        }
+
         public Manga GetManga(int id)
         {
             Manga mangaChosen = null;
