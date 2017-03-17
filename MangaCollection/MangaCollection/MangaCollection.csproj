@@ -93,9 +93,10 @@
     <Content Include="Content\site.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\bone-50.jpg" />
-    <Content Include="Images\the-amazing-spider-man-657.jpg" />
-    <Content Include="Images\the-amazing-spider-man-700.jpg" />
+    <Content Include="Images\drifters-1.jpg" />
+    <Content Include="Images\drifters-64.jpg" />
+    <Content Include="Images\onepunch-man-1.jpg" />
+    <Content Include="Images\onepunch-man-116.jpg" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -106,6 +107,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\MangaController.cs" />
+    <Compile Include="Data\MangaRepo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
