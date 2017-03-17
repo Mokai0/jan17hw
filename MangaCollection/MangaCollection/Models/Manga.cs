@@ -27,7 +27,7 @@ namespace MangaCollection.Models
         {
             get
             {
-                return SeriesTitle.Replace("", "-")
+                return SeriesTitle.Replace(" ", "-")
                     .ToLower() + "-" + IssueNumber + ".jpg";
             }
         }
