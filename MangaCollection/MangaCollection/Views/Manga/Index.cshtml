@@ -1,7 +1,18 @@
-﻿
+﻿@model MangaCollection.Models.Manga[]
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Mangas";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
+<div class="row">
+    @foreach (var manga in Model)
+    {
+        <div class="col-md-3">
+            <h4>@manga.DisplayText</h4>
+            <img src="/Images/@manga.CoverImageFileName"
+                 alt="@manga.DisplayText"
+                 class="img-responsive" />
+        </div>
+    }
+    </div>
