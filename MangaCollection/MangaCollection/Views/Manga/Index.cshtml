@@ -9,10 +9,12 @@
     @foreach (var manga in Model)
     {
         <div class="col-md-3">
-            <h4>@manga.DisplayText</h4>
-            <img src="/Images/@manga.CoverImageFileName"
-                 alt="@manga.DisplayText"
-                 class="img-responsive" />
+            <h4>@Html.ActionLink(manga.DisplayText, "Detail", new { id = manga.Id })</h4>
+            <a href="@Url.Action("Detail", new { id = manga.Id })">
+                <img src="/Images/@manga.CoverImageFileName"
+                     alt="@manga.DisplayText"
+                     class="img-responsive" />
+            </a>
         </div>
     }
     </div>
