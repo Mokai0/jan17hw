@@ -44,9 +44,18 @@ namespace Treehouse.FitnessFrog.Controllers
             return View();
         }
 
-        [ActionName("Add"), HttpPost]
-        public ActionResult AddPost()
+        [HttpPost]
+        public ActionResult Add(string date, string activityId, string duration, string intensity, string exclude, string notes)
         {
+            //string date = Request.Form["Date"];
+            //Using this method I'd have to write a new line of code for each form field that I need to collect data from, instead we'll use the parameters approach to collect the necessary data.
+            ViewBag.Date = date;
+            ViewBag.ActivityId = activityId;
+            ViewBag.Duration = duration;
+            ViewBag.Intensity = intensity;
+            ViewBag.Exclude = exclude;
+            ViewBag.Notes = notes;
+
             return View();
         }
 
