@@ -89,6 +89,8 @@ namespace Treehouse.FitnessFrog.Models
         /// <summary>
         /// The notes for the entry.
         /// </summary>
+        [Required]
+        [MaxLength(200, ErrorMessage = "Shorten your notes, 200charMax")]
         public string Notes { get; set; }
     }
 }

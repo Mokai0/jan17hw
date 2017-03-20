@@ -57,7 +57,7 @@ namespace Treehouse.FitnessFrog.Controllers
             //If no "Duration" field errors check that entry was greater than "0".
             if (ModelState.IsValidField("Duration") && entry.Duration <= 0)
             {
-                ModelState.AddModelError("Dration", "How long did you work out for??");
+                ModelState.AddModelError("Duration", "How long did you work out for??");
             }
 
             if (ModelState.IsValid)
