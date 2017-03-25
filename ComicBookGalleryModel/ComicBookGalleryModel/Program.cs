@@ -14,15 +14,23 @@ namespace ComicBookGalleryModel
         {
             using (var context = new Context())
             {
+                var series = new Series()
+                {
+                    Title = "The Amazing Spider-Man"
+                };
                 context.ComicBooks.Add(new ComicBook()
                 {
-                    Series = new Series()
-                    {
-                        Title = "The Amazing Spider-Man"
-                    },
+                    Series = series,
                     IssueNumber = 1,
                     PublishedOn = DateTime.Today
                 });
+                context.ComicBooks.Add(new ComicBook()
+                {
+                    Series = series,
+                    IssueNumber = 2,
+                    PublishedOn = DateTime.Today
+                });
+
                 context.SaveChanges();
 
                 var comicBooks = context.ComicBooks
@@ -30,7 +38,7 @@ namespace ComicBookGalleryModel
                     .ToList();
                 foreach (var comicBook in comicBooks)
                 {
-                    Console.WriteLine(comicBook.Series.Title);
+                    Console.WriteLine(comicBook.DisplayText);
                 }
 
                 Console.ReadLine();
