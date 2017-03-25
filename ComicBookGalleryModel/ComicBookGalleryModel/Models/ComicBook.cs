@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace ComicBookGalleryModel.Models
     {
         public ComicBook()
         {
-            Artists = new List<Artist>();
+            Artists = new List<ComicBookArtist>();
         }
 
         public int Id { get; set; }
@@ -22,13 +23,22 @@ namespace ComicBookGalleryModel.Models
 
         public Series Series { get; set; }
         //It's convention to keep nav properties seperate from the rest of them
-        public ICollection<Artist> Artists { get; set; }
+        public ICollection<ComicBookArtist> Artists { get; set; }
         public string DisplayText
         {
             get
             {
                 return $"{Series?.Title} #{IssueNumber}";
             }
+        }
+
+        public void AddArtist(Artist artist, Role role)
+        {
+            Artists.Add(new ComicBookArtist()
+            {
+                Artist = artist,
+                Role = role
+            });
         }
     }
 }
