@@ -8,16 +8,10 @@ namespace LINQ_Basics
 {
     class Program
     {
-        delegate void SayGreeting(string name);
-
-        public static void SayGoodbye(string name)
-        {
-            Console.WriteLine(string.Format("Later, {0}", name));
-        }
-
         static void Main(string[] args)
-        { 
-            SayGreeting sayGreeting = delegate(string name)
+        {
+            Action<string> sayGreeting;
+            sayGreeting = delegate(string name)
             {
                 Console.WriteLine(string.Format("Hello, {0}", name));
             };
@@ -26,7 +20,10 @@ namespace LINQ_Basics
             string input = Console.ReadLine();
             sayGreeting(input);
             Console.ReadLine();
-            sayGreeting = new SayGreeting(SayGoodbye);
+            sayGreeting = delegate (string name)
+            {
+                Console.WriteLine(string.Format("Later, {0}", name));
+            };
             sayGreeting(input);
             Console.ReadKey();
         }
