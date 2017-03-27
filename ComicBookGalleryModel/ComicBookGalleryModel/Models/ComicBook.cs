@@ -21,9 +21,10 @@ namespace ComicBookGalleryModel.Models
         public DateTime PublishedOn { get; set; }
         public decimal? AverageRating { get; set; }
 
-        public Series Series { get; set; }
+        public virtual Series Series { get; set; }
         //It's convention to keep nav properties seperate from the rest of them
-        public ICollection<ComicBookArtist> Artists { get; set; }
+
+        public virtual ICollection<ComicBookArtist> Artists { get; set; }
         public string DisplayText
         {
             get
