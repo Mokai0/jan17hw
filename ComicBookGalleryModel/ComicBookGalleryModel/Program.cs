@@ -25,6 +25,12 @@ namespace ComicBookGalleryModel
                     .ToList();
                 foreach (var comicBook in comicBooks)
                 {
+                    if (comicBook.Series == null)
+                    {
+                        context.Entry(comicBook)
+                            .Reference(cb => cb.Series)
+                            .Load();
+                    }
                     var artistRoleNames = comicBook.Artists
                         .Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
                     var artistRolesDisplayText = string.Join(", ", artistRoleNames);
