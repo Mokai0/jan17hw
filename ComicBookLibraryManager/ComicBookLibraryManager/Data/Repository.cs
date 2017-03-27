@@ -157,7 +157,10 @@ namespace ComicBookLibraryManager.Data
                 //While this method is useful it requires 2 seperat queries to update the desired info
 
                 context.ComicBooks.Attach(comicBook);
-                context.Entry(comicBook).State = EntityState.Modified;
+                var comicBookEntry = context.Entry(comicBook);
+                comicBookEntry.State = EntityState.Modified;
+                //comicBookEntry.Property("IssueNumber").IsModified = false;
+                //This line of code is particularly useful because it allows you to specify bits of data that you'd like to prevent any changes to - preventing an unecessary query to be made
 
                 context.SaveChanges();
             }
