@@ -174,8 +174,12 @@ namespace ComicBookLibraryManager.Data
         {
             using (Context context = GetContext())
             {
-                ComicBook comicBook = context.ComicBooks.Find(comicBook.Id);
-                context.ComicBooks.Remove(comicBook);
+                //ComicBook comicBook = context.ComicBooks.Find(comicBook.Id);
+                //context.ComicBooks.Remove(comicBook);
+
+                var comicBook = new ComicBook() { Id = comicBookId };
+                context.Entry(comicBook).State = EntityState.Deleted;
+                //This is whats known as a stub entity
 
                 context.SaveChanges();
             }
