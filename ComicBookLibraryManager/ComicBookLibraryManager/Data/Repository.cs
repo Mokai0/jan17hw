@@ -172,7 +172,13 @@ namespace ComicBookLibraryManager.Data
         /// <param name="comicBookId">The comic book ID to delete.</param>
         public static void DeleteComicBook(int comicBookId)
         {
-            // TODO
+            using (Context context = GetContext())
+            {
+                ComicBook comicBook = context.ComicBooks.Find(comicBook.Id);
+                context.ComicBooks.Remove(comicBook);
+
+                context.SaveChanges();
+            }
         }
     }
 }
