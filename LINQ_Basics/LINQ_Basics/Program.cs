@@ -11,20 +11,24 @@ namespace LINQ_Basics
         static void Main(string[] args)
         {
             Action<string> sayGreeting;
-            sayGreeting = delegate(string name)
+
+            Func<string, string> conversate = (message) =>
             {
-                Console.WriteLine(string.Format("Hello, {0}", name));
+                Console.WriteLine(message);
+                return Console.ReadLine();
+            };
+            
+            string input = conversate("What's your name?");
+
+            sayGreeting = (greeting) =>
+            {
+                Console.WriteLine(string.Format(greeting, input));
             };
 
-            Console.WriteLine("What's your name?");
-            string input = Console.ReadLine();
-            sayGreeting(input);
-            Console.ReadLine();
-            sayGreeting = delegate (string name)
-            {
-                Console.WriteLine(string.Format("Later, {0}", name));
-            };
-            sayGreeting(input);
+            sayGreeting("Hello, {0}");
+            conversate("Nice to see ya!");
+            conversate("How are you doing?");
+            sayGreeting("Later, {0}");
             Console.ReadKey();
         }
     }
