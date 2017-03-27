@@ -10,11 +10,6 @@ namespace LINQ_Basics
     {
         delegate void SayGreeting(string name);
 
-        public static void SayHello(string name)
-        {
-            Console.WriteLine(string.Format("Hello, {0}", name));
-        }
-
         public static void SayGoodbye(string name)
         {
             Console.WriteLine(string.Format("Later, {0}", name));
@@ -22,7 +17,11 @@ namespace LINQ_Basics
 
         static void Main(string[] args)
         {
-            SayGreeting sayGreeting = new SayGreeting(SayHello);
+            SayGreeting sayGreeting = delegate(string name)
+            {
+                Console.WriteLine(string.Format("Hello, {0}", name));
+            };
+
             Console.WriteLine("What's your name?");
             string input = Console.ReadLine();
             sayGreeting(input);
