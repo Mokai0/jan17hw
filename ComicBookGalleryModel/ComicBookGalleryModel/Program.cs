@@ -27,6 +27,10 @@ namespace ComicBookGalleryModel
                     //      cb.Series.Title == "The Amazing Spider-Man")
                     //.Where(cb => cb.IssueNumber == 1 ||
                     //      cb.Series.Title == "The Amazing Spider-Man")
+                    .OrderByDescending(cb => cb.IssueNumber)
+                    //.OrderBy(cb => cb.PublishedOn)
+                    //You can't stack OrderBy calls, only the last one will run
+                    .ThenBy(cb => cb.PublishedOn)
                     .ToList();
 
                 foreach (var comicBook in comicBooks)
