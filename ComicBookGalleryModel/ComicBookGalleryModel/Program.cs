@@ -19,18 +19,29 @@ namespace ComicBookGalleryModel
 
                 //var comicBooks = context.ComicBooks.ToList();
 
-                var comicBooksQuery = from cb in context.ComicBooks select cb;
-                var comicBooks = comicBooksQuery
+                //var comicBooksQuery = from cb in context.ComicBooks select cb;
+                //var comicBooks = comicBooksQuery
+                //    .Include(cb => cb.Series)
+                //    .Where(cb => cb.Series.Title.Contains("man"))
+                //    //.Where(cb => cb.IssueNumber == 1 &&
+                //    //      cb.Series.Title == "The Amazing Spider-Man")
+                //    //.Where(cb => cb.IssueNumber == 1 ||
+                //    //      cb.Series.Title == "The Amazing Spider-Man")
+                //    .OrderByDescending(cb => cb.IssueNumber)
+                //    //.OrderBy(cb => cb.PublishedOn)
+                //    //You can't stack OrderBy calls, only the last one will run
+                //    .ThenBy(cb => cb.PublishedOn)
+                //    .ToList();
+
+                var comicBooksQuery = context.ComicBooks
                     .Include(cb => cb.Series)
-                    .Where(cb => cb.Series.Title.Contains("man"))
-                    //.Where(cb => cb.IssueNumber == 1 &&
-                    //      cb.Series.Title == "The Amazing Spider-Man")
-                    //.Where(cb => cb.IssueNumber == 1 ||
-                    //      cb.Series.Title == "The Amazing Spider-Man")
-                    .OrderByDescending(cb => cb.IssueNumber)
-                    //.OrderBy(cb => cb.PublishedOn)
-                    //You can't stack OrderBy calls, only the last one will run
-                    .ThenBy(cb => cb.PublishedOn)
+                    .OrderByDescending(cb => cb.IssueNumber);
+
+                var comicBooks = comicBooksQuery.ToList();
+
+                var comicBooks2 = comicBooksQuery
+                    //Since this query is directly linked to the previous one it will automatically inherit it's 'OrderBy' clause
+                    .Where(cb => cb.AverageRating < 7)
                     .ToList();
 
                 foreach (var comicBook in comicBooks)
@@ -40,6 +51,15 @@ namespace ComicBookGalleryModel
 
                 Console.WriteLine();
                 Console.WriteLine("# of comic books: {0}", comicBooks.Count);
+                Console.WriteLine();
+
+                foreach (var comicBook in comicBooks2)
+                {
+                    Console.WriteLine(comicBook.DisplayText);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("# of comic books: {0}", comicBooks2.Count);
 
                 //var comicBooks = context.ComicBooks
                 //    .Include(cb => cb.Series)
