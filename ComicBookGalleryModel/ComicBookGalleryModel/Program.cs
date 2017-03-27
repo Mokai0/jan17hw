@@ -30,7 +30,8 @@ namespace ComicBookGalleryModel
                 //Single - more strict than the other one, this will search for 1 result and throw an error if more than one or none are found
                 //First - also more strict but maintains that it will end it's search at the first result, error is thrown if nothing is found
 
-
+                Debug.WriteLine("Changing the Description property value.");
+                comicBook1.Description = "New value!";
 
                 var comicBook2 = context.ComicBooks
                     .SingleOrDefault(cb => cb.Id == comicBookId);
