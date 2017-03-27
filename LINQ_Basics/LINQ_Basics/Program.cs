@@ -16,7 +16,7 @@ namespace LINQ_Basics
         }
 
         static void Main(string[] args)
-        {
+        { 
             SayGreeting sayGreeting = delegate(string name)
             {
                 Console.WriteLine(string.Format("Hello, {0}", name));
