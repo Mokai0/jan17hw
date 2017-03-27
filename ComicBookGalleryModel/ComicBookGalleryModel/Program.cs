@@ -20,8 +20,21 @@ namespace ComicBookGalleryModel
                 //var comicBooks = context.ComicBooks.ToList();
 
                 var comicBooksQuery = from cb in context.ComicBooks select cb;
-                var comicBooks = comicBooksQuery.ToList();
+                var comicBooks = comicBooksQuery
+                    .Include(cb => cb.Series)
+                    .Where(cb => cb.Series.Title.Contains("man"))
+                    //.Where(cb => cb.IssueNumber == 1 &&
+                    //      cb.Series.Title == "The Amazing Spider-Man")
+                    //.Where(cb => cb.IssueNumber == 1 ||
+                    //      cb.Series.Title == "The Amazing Spider-Man")
+                    .ToList();
 
+                foreach (var comicBook in comicBooks)
+                {
+                    Console.WriteLine(comicBook.DisplayText);
+                }
+
+                Console.WriteLine();
                 Console.WriteLine("# of comic books: {0}", comicBooks.Count);
 
                 //var comicBooks = context.ComicBooks
