@@ -25,7 +25,6 @@ namespace DataStructPractice
             //This setup will allow you to add references to the collections and their items w/o explicity copyint the items. That way should any of the expected collections change that change would be directly translated automatically.
 
             var ec = new EnumerableCompositor<int> { list1, list2, set1, array1 };
-            //The current issue here is that there is no constructor that accepts no paramaters.
 
             //int numOdd = 0;
 

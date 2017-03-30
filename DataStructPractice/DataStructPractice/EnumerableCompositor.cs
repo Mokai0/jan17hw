@@ -9,6 +9,11 @@ namespace DataStructPractice
     {
         private List<IEnumerable<T>> _collections;
 
+        public EnumerableCompositor()
+        {
+            _collections = new List<IEnumerable<T>>();
+        }
+
         public EnumerableCompositor(IEnumerable<IEnumerable<T>> collections)
         {
             _collections = collections.ToList();
