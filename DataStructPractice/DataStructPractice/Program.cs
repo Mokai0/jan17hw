@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace DataStructPractice
 {
@@ -24,8 +19,8 @@ namespace DataStructPractice
             //var ec = new EnumerableCompositor<int>(new IEnumerable<int>[] { list1, list2, set1, array1 });
             //This setup will allow you to add references to the collections and their items w/o explicity copyint the items. That way should any of the expected collections change that change would be directly translated automatically.
 
-            var ec = new EnumerableCompositor<int> { list1, list2, set1, array1 };
-
+            var ec =EnumerableCompositor.Create(
+                new IEnumerable<int>[] { list1, list2, set1, array1 } );
             int numOdd = 0;
 
             foreach (var value in ec)
@@ -38,12 +33,6 @@ namespace DataStructPractice
 
             //int numOdd = ec.Count(x => IsOdd(x));
 
-            IEnumerable<int> firstThree = Utils.Take<int>(list1, 3);
-            //         Actually in this instance here ^ you don't have to add the type because the Take method is a generic method.
-            foreach(var item in firstThree)
-            {
-
-            }
         }
     }
 }
