@@ -26,17 +26,24 @@ namespace DataStructPractice
 
             var ec = new EnumerableCompositor<int> { list1, list2, set1, array1 };
 
-            //int numOdd = 0;
+            int numOdd = 0;
 
-            //foreach(var value in ec)
-            //{
-            //    if(IsOdd(value))
-            //    {
-            //        numOdd++;
-            //    }
-            //}
+            foreach (var value in ec)
+            {
+                if (IsOdd(value))
+                {
+                    numOdd++;
+                }
+            }
 
             //int numOdd = ec.Count(x => IsOdd(x));
+
+            IEnumerable<int> firstThree = Utils.Take<int>(list1, 3);
+            //         Actually in this instance here ^ you don't have to add the type because the Take method is a generic method.
+            foreach(var item in firstThree)
+            {
+
+            }
         }
     }
 }
