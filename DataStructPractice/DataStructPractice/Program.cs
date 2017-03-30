@@ -21,11 +21,19 @@ namespace DataStructPractice
             var set1 = new HashSet<int> { 3, 6, 9, 12, 15 };
             var array1 = new[] { 4, 8, 12, 16, 20 };
 
-            int numOdd =
-                list1.Count(x => IsOdd(x)) +
-                list2.Count(x => IsOdd(x)) +
-                set1.Count(x => IsOdd(x)) +
-                array1.Count(x => IsOdd(x));
+            //var ec = new EnumerableCompositor<int> { list1, list2, set1, array1 };
+
+            //int numOdd = 0;
+
+            //foreach(var value in ec)
+            //{
+            //    if(IsOdd(value))
+            //    {
+            //        numOdd++;
+            //    }
+            //}
+
+            //int numOdd = ec.Count(x => IsOdd(x));
         }
     }
 }
