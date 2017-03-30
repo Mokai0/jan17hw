@@ -7,7 +7,7 @@ namespace DataStructPractice
 {
     static class EnumerableCompositor
     {
-        public static EnumerableCompositor<T> Create<T>(IEnumerable<T>[] collections)
+        public static EnumerableCompositor<T> Create<T>(params IEnumerable<T>[] collections)
         {
             return new EnumerableCompositor<T>(collections);
         }
