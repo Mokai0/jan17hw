@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using static DataStructPractice.EnumerableCompositor;
 
 namespace DataStructPractice
 {
@@ -19,10 +21,9 @@ namespace DataStructPractice
             //var ec = new EnumerableCompositor<int>(new IEnumerable<int>[] { list1, list2, set1, array1 });
             //This setup will allow you to add references to the collections and their items w/o explicity copyint the items. That way should any of the expected collections change that change would be directly translated automatically.
 
-            var ec =EnumerableCompositor.Create(list1, list2, set1, array1);
             int numOdd = 0;
 
-            foreach (var value in ec)
+            foreach (var value in EC(list1, list2, set1, array1))
             {
                 if (IsOdd(value))
                 {
