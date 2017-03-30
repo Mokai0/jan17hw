@@ -47,5 +47,17 @@ namespace DataStructPractice
         {
             return GetEnumerator();
         }
+
+        public TCollection To<TCollection>() where TCollection : ICollection<T>, new()
+        {
+            var collection = new TCollection(); //This operation wouldn't be possible w/o the reference to 'new()'
+
+            foreach(var item in this)   //This operation wouldn't be possible w/o the reference to 'ICollection<T>'
+            {
+                collection.Add(item);
+            }
+
+            return collection;
+        }
     }
 }

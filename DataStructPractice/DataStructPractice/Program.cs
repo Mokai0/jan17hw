@@ -21,8 +21,9 @@ namespace DataStructPractice
             //var ec = new EnumerableCompositor<int>(new IEnumerable<int>[] { list1, list2, set1, array1 });
             //This setup will allow you to add references to the collections and their items w/o explicity copyint the items. That way should any of the expected collections change that change would be directly translated automatically.
 
-            int numOdd = EC(list1, list2, set1, array1)).Count(x => IsOdd(x));
+            int numOdd = EC(list1, list2, set1, array1).Count(x => IsOdd(x));
 
+            HashSet<int> set = EC(list1, list2, set1, array1).To<HashSet<int>>();
         }
     }
 }
